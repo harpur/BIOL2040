@@ -15,6 +15,58 @@ require("gdata")
 require("dataframes2xls")
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#load master class list extraxt summary info --------------------------------
+master.attendance = read.xls("C:\\Users\\ZayedLab\\Desktop\\Dropbox\\BIOL 2040 F2016 Tutorial Grades\\BIOLOGY 2040 FALL 2016.xls", header=T)
+
+
+
+
+
+
+#Check against Master ----------------------------------------
+merge.master = merge(fil, master.attendance, by = c("ID"), all.y=T)
+
+table(merge.master$TUT.x) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #change directory to working -----------------------------
 setwd("C:\\Users\\ZayedLab\\Desktop\\Sync\\Admin_AGSBS\\BIOL2040_W_2015\\Tutorial 9\\")
 
