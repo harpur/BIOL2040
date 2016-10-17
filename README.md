@@ -11,3 +11,5 @@ ID	LN	FN	EM	L	TUT	AP	Ind	Grp
 
 ## FileChecker.r
 This function loads in a single file and ensures the students on it match a master list and that all cells within the file are filled out correctly
+
+As of right now, the script isn't an exceutable. I'll have that ready after I am sure I've hit all the potential errors that can come from this type of munging.

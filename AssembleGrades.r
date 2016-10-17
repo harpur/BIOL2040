@@ -2,14 +2,70 @@
 # Mark Pusher
 ###
 
-#Takes marks in .xls format, checks them, and then outputs a single file
-
-#to change for 2040 2016: 
-	# add a format checker
-	# Enhanced error checking ast each step (eliminate human checkes)
-	# Automated downloads?
 
 
+#Load packages ----------------------------------
+require("gdata")
+require("dataframes2xls")
+
+#Read file and describe it
+tutorial = arg[1] #1
+master.file = arg[2] #"C:\\Users\\ZayedLab\\Desktop\\Dropbox\\BIOL 2040 F2016 Tutorial Grades\\2016BIOL2040A (6).xls"
+
+
+#Run File Checks ----------------------------------------
+
+
+
+#Load in Compiled Grades and Marks ---------------------------------
+fil = read.table(file = paste("BIOL2040_MergedGrades_", tutorial, sep=""))
+marks = read.xls("TotalMark.xls")
+	
+	
+	
+	
+	
+	
+#Load in Compiled Grades and Marks ---------------------------------
+fil = read.table(file = paste("BIOL2040_MergedGrades_", tutorial, sep=""))
+marks = read.xls("TotalMark.xls")
+	
+sect = paste("T", tutorial, sep="")	
+	
+	
+#arguments -----------------------------------
+Percent.Ind = 0.5 #this is hard set until otherwise changed
+Percent.Grp  = 1 - Percent.Ind 
+Total.Grp = marks[2][grep(sect,marks$tut),]
+Total.Ind = marks[3][grep(sect,marks$tut),]
+fin.marks = rep("NA", nrow(fil))
+
+# Calculate contribution of Individual and Group Marks ----------------------
+fin.marks = Percent.Ind * (fil$Ind/Total.Ind) + Percent.Grp * (fil$Grp/Total.Grp)
+
+# Any Individual > Group Marks? ----------------------
+if(sum((fil$Ind/Total.Ind) > (fil$Grp/Total.Grp))>1){
+	high.mark.inds = which((fil$Ind/Total.Ind) > (fil$Grp/Total.Grp))
+	fin.marks[high.mark.inds] = (fil$Ind[high.mark.inds]/Total.Ind)
+}
+
+
+fil$FinPerc = fin.marks
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 #Load packages ----------------------------------
 require("gdata")
 require("dataframes2xls")
