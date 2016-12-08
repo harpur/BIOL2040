@@ -5,7 +5,7 @@
 
 #TODO: remove hard-coded files and add in args
 
-tutorials = c(1:3)
+tutorials = c(1:9)
 
 #Load packages ----------------------------------
 require("gdata")
@@ -27,7 +27,7 @@ master.merge = merge(master.merge, fil, all = T, by = "ID")
 
 }
 
-write.table(master.merge, file = "BIOL2040Grades", row.names=F, quote=F)
+write.csv(master.merge, file = "BIOL2040Grades", row.names=F, quote=F)
 
  
 

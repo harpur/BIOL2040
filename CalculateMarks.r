@@ -5,7 +5,7 @@
 
 #TODO: remove hard-coded files and add in args
 
-tutorials = c(1:3)
+tutorials = c(9)
 
 #Load packages ----------------------------------
 require("gdata")

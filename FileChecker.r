@@ -3,7 +3,7 @@
 ###
 
 
-tutorials = c(1:3)
+tutorials = c(9)
 	
 #Load packages ----------------------------------
 require("gdata")
@@ -42,7 +42,9 @@ print(paste("You are checking", length(tutorial.grades.files ), "files", sep=" "
 		#Data Checks on the file ----------------------------------------
 		#should be no empty cells 
 		if(sum(is.na(fil)) > 0){
-			stop("empty cells")
+			print(tutorial.grades.files[i])
+			stop("empty cells ")
+			
 		}
 
 		#should be no absent students with marks 
