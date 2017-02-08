@@ -2,7 +2,7 @@
 setwd("/Users/brcok/Desktop/BIOL2040_W2017/")
 
 
-tutorials = c(1,2)
+tutorials = c(1,2,3)
 	
 #Load packages ----------------------------------
 require("gdata")

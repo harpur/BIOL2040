@@ -12,26 +12,23 @@ source("params.R")
 
 
 #Load in Compiled Grades and Marks ---------------------------------
-fil = read.table(file = paste("BIOL2040_MergedGrades_", tutorial, sep=""))
-marks = read.xls("TotalMark.xls")
+marks = read.xls("TotalMark.xlsx")
 	
 	
+for(tutorial in tutorials){
+	print(tutorial)
 	
-	
-	
-	
+		
 #Load in Compiled Grades and Marks ---------------------------------
 fil = read.table(file = paste("BIOL2040_MergedGrades_", tutorial, sep=""))
-marks = read.xls("TotalMark.xls")
-	
 sect = paste("T", tutorial, sep="")	
 	
 	
 #arguments -----------------------------------
 Percent.Ind = 0.5 #this is hard set until otherwise changed
 Percent.Grp  = 1 - Percent.Ind 
-Total.Grp = marks[2][grep(sect,marks$tut),]
-Total.Ind = marks[3][grep(sect,marks$tut),]
+Total.Ind = marks[2][grep(sect,marks$tut),]
+Total.Grp = marks[3][grep(sect,marks$tut),]
 fin.marks = rep("NA", nrow(fil))
 
 # Calculate contribution of Individual and Group Marks ----------------------
@@ -47,7 +44,7 @@ if(sum((fil$Ind/Total.Ind) > (fil$Grp/Total.Grp))>1){
 fil$FinPerc = fin.marks
 
 	
-	
+}	
 	
 	
 	
