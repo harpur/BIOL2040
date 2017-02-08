@@ -5,13 +5,7 @@
 
 
 #Load packages ----------------------------------
-require("gdata")
-require("dataframes2xls")
-
-#Read file and describe it
-tutorial = arg[1] #1
-master.file = arg[2] #"C:\\Users\\ZayedLab\\Desktop\\Dropbox\\BIOL 2040 F2016 Tutorial Grades\\2016BIOL2040A (6).xls"
-
+source("params.R")
 
 #Run File Checks ----------------------------------------
 

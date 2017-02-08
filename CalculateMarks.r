@@ -4,16 +4,10 @@
 ###
 
 #TODO: remove hard-coded files and add in args
+source("params.R")
 
-tutorials = c(9)
 
-#Load packages ----------------------------------
-require("gdata")
-require("dataframes2xls")
 
-#Read file and describe it
-#tutorial = arg[1] #1
-master.file = "C:\\Users\\ZayedLab\\Desktop\\Dropbox\\BIOL 2040 F2016 Tutorial Grades\\2016BIOL2040A (6).xls"
 
 
 for(tutorial in tutorials){
@@ -25,11 +19,9 @@ for(tutorial in tutorials){
 
 #Load in Compiled Grades and Marks ---------------------------------
 fil = read.table(file = paste("BIOL2040_MergedGrades_", tutorial, sep=""))
-marks = read.xls("TotalMark.xls")
+marks = read.xls("TotalMark.xlsx")
 	
-#Load in Compiled Grades and Marks ---------------------------------
-fil = read.table(file = paste("BIOL2040_MergedGrades_", tutorial, sep=""))
-marks = read.xls("TotalMark.xls")
+
 	
 sect = paste("T", tutorial, sep="")	
 	
@@ -37,8 +29,8 @@ sect = paste("T", tutorial, sep="")
 #arguments -----------------------------------
 Percent.Ind = 0.5 #this is hard set until otherwise changed
 Percent.Grp  = 1 - Percent.Ind 
-Total.Ind = marks[2][grep(sect,marks$tut),]
-Total.Grp = marks[3][grep(sect,marks$tut),]
+Total.Ind = marks[2][grep( paste("^",sect,"$", sep=""),marks$tut),]
+Total.Grp = marks[3][grep(paste("^",sect,"$", sep=""),marks$tut),]
 fin.marks = rep("NA", nrow(fil))
 
 # Calculate contribution of Individual and Group Marks ----------------------
